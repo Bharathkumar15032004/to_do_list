@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-LIST</title>
+
+
+    <style>
+        body{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-image:url(pexels-polina-kovaleva-5717479.jpg);
+            background-size:cover ;
+            background-position:center;
+            height: 100vh;
+        }
+
+
+        .todo-one{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:orange;
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 150px black;
+            
+        }
+        .todo-two{
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+         .todo-two h1{
+            margin: 0;
+         }
+         
+         .todo-input{
+            padding: 15px;
+            font-size: 20px;
+            border: 2px double black;
+            border-radius: 20px;
+            margin-left: 35px;
+         }
+
+         .todo-button{
+            padding: 5px 20px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: olivedrab;
+            color: aliceblue;
+            cursor: pointer;
+         }
+         .todo-button:hover{
+            background-color: lightgreen;
+         }
+
+         .todo-ul{
+            list-style-type: none;
+         }
+
+         .todo-li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            
+            
+         }
+
+         .todo-li button{
+         background-color: rgb(197, 8, 8);
+         color: aliceblue;
+         padding: 5px 20px;
+         font-size: 20px;
+         border:2px solid black ;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+
+         .todo-li button:hover{
+            background-color: rgb(238, 25, 25);
+
+         }
+    </style>
+</head>
+<body>
+    <div class="todo-one">
+        <div class="todo-two">
+            <h1>TO DO -LIST</h1>
+            <input id="input" class="todo-input"  placeholder="Enter Your Text">
+            <button onclick="add()"  class="todo-button">ADD</button>
+        </div>
+        <ul id="ul" class="todo-ul">
+            <li class="todo-li">EXAMPLE-1 <button onclick="deleteitem(event)">DELETE</button></li>
+        </ul>
+
+    </div>
+
+
+
+    <script>
+        var inputvalue=document.getElementById("input")
+        var list=document.getElementById("ul")
+
+        function add()
+        {
+            var listitem=document.createElement("li")
+            listitem.className="todo-li"
+            listitem.innerHTML=inputvalue.value+ "<button onclick='deleteitem(event)'>DELETE</button>"
+            list.append(listitem)
+
+        }
+        function deleteitem(event)
+        {
+            event.target.parentElement.remove()
+        }
+    </script>
+    
+</body>
+</html>
